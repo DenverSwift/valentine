@@ -1,0 +1,18 @@
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+.timer__item {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  min-width: 60px;
+}
+.timer__item span {
+  font-size: 2em;
+  font-weight: bold;
+}
