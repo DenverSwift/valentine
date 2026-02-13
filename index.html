@@ -4,17 +4,254 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Will you be my valentine?</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/gif" href="assets/gifs/stage1.gif">
+    <link rel="stylesheet" href="letter.css">
 </head>
 <body>
-<div class="timer">
-  <div class="timer__item"><span id="days">00</span><br>Дни</div>
-  <div class="timer__item"><span id="hours">00</span><br>Часы</div>
-  <div class="timer__item"><span id="minutes">00</span><br>Мин</div>
-  <div class="timer__item"><span id="seconds">00</span><br>Сек</div>
+<main class="app">
+    <section class="step-section" id="tab-letter">
+        <div class="envelope-wrap">
+            <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the envelope">
+                <div class="env-body"></div>
+                <div class="env-flap"></div>
+                <div class="env-seal">&#10084;&#65039;</div>
+            </div>
+        </div>
+
+        <div class="paper-stack" id="paper-stack" hidden>
+            <article class="paper paper-sheet first-sheet" style="--angle: -6deg; --first-sheet-bg-image: url('assets/white-paper-texture.jpg');">
+                <div class="paper-content">
+                    <div class="paper-top">
+                        <div class="paper-date">14 February 2026</div>
+                        <h1 class="paper-title">My dear <span class="accent">Sonya</span>,</h1>
+                    </div>
+
+                    <div class="paper-body">
+                        <p>
+                            I'm so glad you're in my life. With each day we're together, I realize more and more how
+                            important you are to me and how much you make my world brighter, warmer, and happier. With
+                            you, even the most ordinary moments become special, and any difficulties seem less daunting
+                            because I know we can overcome them together.
+                        </p>
+                        <p>
+                            You inspire me to be better, support me when I need it, and simply give me that feeling of
+                            peace and comfort that words cannot describe. I'm grateful for every second with you, for
+                            your smile, for your laughter, and for being the one holding my hand.
+                        </p>
+                        <p>
+                            Happy Valentine's Day, my love. I want you to always feel how much I love and appreciate
+                            you. And I promise to do everything I can to make you happy - today, tomorrow, and every day
+                            by my side &#10084;&#65039;
+                        </p>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="paper paper-sheet" style="--angle: 0deg;">
+                <div class="panel love-panel">
+                    <h2>What do I love about her</h2>
+                    <div class="love-layout">
+                        <div class="love-left">
+                            <div class="love-reason-buttons" id="love-reason-buttons" role="tablist" aria-label="Reasons I love her">
+                                <button class="love-reason-btn is-active" type="button" data-photo="assets/photos/Her/photo_2025-11-19_12-31-41.jpg">She's smart</button>
+                                <button class="love-reason-btn" type="button" data-photo="assets/photos/Her/photo_2026-02-12_19-30-12.jpg">She's gorgeous</button>
+                                <button class="love-reason-btn" type="button" data-photo="assets/photos/Her/photo_2026-02-12_19-30-24.jpg">She drives me crazy (in a good way)</button>
+                                <button class="love-reason-btn" type="button" data-photo="assets/photos/Her/photo_2026-02-12_19-30-52.jpg">She's fun</button>
+                            </div>
+                            <div class="love-credits-viewport" id="love-credits-viewport" hidden>
+                                <div class="love-credits-track" id="love-credits-track">
+                                    <ul class="love-credits-list" id="love-credits-list"></ul>
+                                    <ul class="love-credits-list" id="love-credits-list-clone" aria-hidden="true"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="love-right">
+                            <div class="love-media-grid" id="love-media-grid">
+                                <figure class="love-photo-card">
+                                    <img id="love-photo-media" src="assets/photos/Her/photo_2025-11-19_12-31-41.jpg" alt="Her photo">
+                                </figure>
+                            </div>
+                            <p class="love-reveal-text" id="love-reveal-text" hidden>Did you really think there were only four reasons?</p>
+                        </div>
+                    </div>
+                    <p class="love-more-line" id="love-more-line">
+                        <span class="love-more-trigger" id="love-more-trigger" role="button" tabindex="0">And many many many many more...</span>
+                    </p>
+                </div>
+            </article>
+
+            <article class="paper paper-sheet" style="--angle: -7deg;">
+                <div class="panel timer-panel">
+                    <h2>How long have we been together</h2>
+                    <div class="timer-grid" data-start="2025-05-16T17:00:00">
+                        <div class="clock-cell">
+                            <span class="clock-value" id="months">00</span>
+                            <span class="clock-label">Months</span>
+                        </div>
+                        <div class="clock-cell">
+                            <span class="clock-value" id="days">00</span>
+                            <span class="clock-label">Days</span>
+                        </div>
+                        <div class="clock-cell">
+                            <span class="clock-value" id="hours">00</span>
+                            <span class="clock-label">Hours</span>
+                        </div>
+                        <div class="clock-cell">
+                            <span class="clock-value" id="minutes">00</span>
+                            <span class="clock-label">Minutes</span>
+                        </div>
+                        <div class="clock-cell">
+                            <span class="clock-value" id="seconds">00</span>
+                            <span class="clock-label">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="paper paper-sheet" style="--angle: 8deg;">
+                <div class="panel shared-moments">
+                    <h2>Shared moments</h2>
+                    <div class="photo-reel">
+                        <div class="photo-strip">
+                            <div class="photo-track">
+                                <div class="photo-card" style="--float-delay: 0s; --media-image: url('assets/photos/Shared moments/photo_1_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_1_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.5s; --media-image: url('assets/photos/Shared moments/photo_2_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_2_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -2.5s; --media-image: url('assets/photos/Shared moments/photo_3_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_3_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -0.5s; --media-image: url('assets/photos/Shared moments/photo_4_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_4_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1s; --media-image: url('assets/photos/Shared moments/photo_5_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_5_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.8s; --media-image: url('assets/photos/Shared moments/photo_6_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_6_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -2.2s; --media-image: url('assets/photos/Shared moments/photo_7_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_7_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -0.2s; --media-image: url('assets/photos/Shared moments/photo_8_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_8_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.3s; --media-image: url('assets/photos/Shared moments/photo_9_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_9_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -0.7s; --media-image: url('assets/photos/Shared moments/photo_10_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_10_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -2.0s; --media-image: url('assets/photos/Shared moments/photo_11_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_11_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.6s; --media-image: url('assets/photos/Shared moments/photo_12_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_12_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -0.9s; --media-image: url('assets/photos/Shared moments/photo_13_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_13_2026-02-12_19-28-59.jpg"></div>
+                            </div>
+                            <div class="photo-track" aria-hidden="true">
+                                <div class="photo-card" style="--float-delay: -0.8s; --media-image: url('assets/photos/Shared moments/photo_1_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_1_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -2s; --media-image: url('assets/photos/Shared moments/photo_2_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_2_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.2s; --media-image: url('assets/photos/Shared moments/photo_3_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_3_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -0.2s; --media-image: url('assets/photos/Shared moments/photo_4_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_4_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.5s; --media-image: url('assets/photos/Shared moments/photo_5_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_5_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.1s; --media-image: url('assets/photos/Shared moments/photo_6_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_6_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -2.4s; --media-image: url('assets/photos/Shared moments/photo_7_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_7_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -0.6s; --media-image: url('assets/photos/Shared moments/photo_8_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_8_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.9s; --media-image: url('assets/photos/Shared moments/photo_9_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_9_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -0.4s; --media-image: url('assets/photos/Shared moments/photo_10_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_10_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -1.7s; --media-image: url('assets/photos/Shared moments/photo_11_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_11_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -2.1s; --media-image: url('assets/photos/Shared moments/photo_12_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_12_2026-02-12_19-28-59.jpg"></div>
+                                <div class="photo-card" style="--float-delay: -0.3s; --media-image: url('assets/photos/Shared moments/photo_13_2026-02-12_19-28-59.jpg');" aria-label="assets/photos/Shared moments/photo_13_2026-02-12_19-28-59.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <article class="paper paper-sheet" style="--angle: -8deg;">
+                <div class="panel">
+                    <h2>Our Couple Quiz</h2>
+                    <p class="muted">Pick your answers and we will see how many match mine.</p>
+                    <div class="quiz-grid">
+                        <div class="quiz-card is-active">
+                            <div class="quiz-progress">Question 1 of 5</div>
+                            <div class="quiz-question">What will our dog's name be?</div>
+                            <div class="quiz-options" data-question="q1">
+                                <button class="quiz-option" type="button" data-choice="rust" data-match="true">Rust</button>
+                                <button class="quiz-option" type="button" data-choice="c-sharp" data-match="true">C-Sharp</button>
+                                <button class="quiz-option" type="button" data-choice="kotlin" data-match="true">Kotlin</button>
+                            </div>
+                        </div>
+                        <div class="quiz-card">
+                            <div class="quiz-progress">Question 2 of 5</div>
+                            <div class="quiz-question">Where will we go on vacation?</div>
+                            <div class="quiz-options" data-question="q2">
+                                <button class="quiz-option" type="button" data-choice="mountains" data-match="true">In the mountains</button>
+                                <button class="quiz-option" type="button" data-choice="beach">On a hot beach</button>
+                                <button class="quiz-option" type="button" data-choice="club">At a club</button>
+                            </div>
+                        </div>
+                        <div class="quiz-card">
+                            <div class="quiz-progress">Question 3 of 5</div>
+                            <div class="quiz-question">Where will our perfect date be?</div>
+                            <div class="quiz-options" data-question="q3">
+                                <button class="quiz-option" type="button" data-choice="home-blanket" data-match="true">At home under a blanket</button>
+                                <button class="quiz-option" type="button" data-choice="restaurant">In a beautiful restaurant</button>
+                                <button class="quiz-option" type="button" data-choice="anywhere-together" data-match="true">Anywhere, as long as we're together</button>
+                            </div>
+                        </div>
+                        <div class="quiz-card">
+                            <div class="quiz-progress">Question 4 of 5</div>
+                            <div class="quiz-question">Who will wake whom up in the morning?</div>
+                            <div class="quiz-options" data-question="q4">
+                                <button class="quiz-option" type="button" data-choice="you-wake-me" data-match="true">You wake me</button>
+                                <button class="quiz-option" type="button" data-choice="i-wake-you">I wake you</button>
+                                <button class="quiz-option" type="button" data-choice="alarm">The alarm clock (but we hate it)</button>
+                            </div>
+                        </div>
+                        <div class="quiz-card">
+                            <div class="quiz-progress">Question 5 of 5</div>
+                            <div class="quiz-question">Our first crazy thing together will be...</div>
+                            <div class="quiz-options" data-question="q5">
+                                <button class="quiz-option" type="button" data-choice="night-walk">A night walk till morning</button>
+                                <button class="quiz-option" type="button" data-choice="spontaneous" data-match="true">A spontaneous sex in an unexpected place</button>
+                                <button class="quiz-option" type="button" data-choice="decide-later">We'll do it first and decide later</button>
+                            </div>
+                        </div>
+                        <div class="quiz-result" id="quiz-result" hidden>
+                            <div class="quiz-result-kicker">Quiz complete &#127881;</div>
+                            <h3 class="quiz-result-score" id="quiz-result-score">You matched 0 out of 5 answers</h3>
+                            <p class="quiz-result-text" id="quiz-result-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="paper paper-sheet" style="--angle: 9deg;">
+                <div class="panel valentine">
+                    <h2 id="valentine-prompt">Will you be my valentine?</h2>
+                    <div class="valentine-buttons" id="valentine-buttons">
+                        <button class="valentine-btn yes" id="btn-yes" type="button">Yes</button>
+                        <button class="valentine-btn no" id="btn-no" type="button">No</button>
+                    </div>
+                    <div class="valentine-stage" id="valentine-stage">
+                        <img class="valentine-stage-image" id="valentine-stage-image" src="assets/gifs/stage1.gif" alt="Reaction stage">
+                    </div>
+                    <div class="yes-inline" id="yes-inline" hidden>
+                        <div class="media-embed yes-gif">
+                            <img class="yes-gif-image" src="assets/gifs/Kiss.gif" alt="Kiss gif">
+                        </div>
+                        <p class="yes-text">I knew you would say yes!</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+</main>
+
+<div class="continue-bar is-hidden" id="continue-bar">
+    <button class="continue-btn" id="continue-btn" type="button">Continue</button>
+    <button class="continue-btn is-secondary" id="restart-btn" type="button" hidden>Read again</button>
 </div>
 
-    <!-- Links the external JavaScript file -->
-    <script src="script.js"></script>
+<button class="music-toggle" id="music-toggle" type="button" aria-pressed="false">
+    <span class="music-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" focusable="false">
+            <path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2"/>
+            <path fill-rule="evenodd" d="M9 3v10H8V3z"/>
+            <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5z"/>
+        </svg>
+    </span>
+    <span class="music-label">Turn music on</span>
+</button>
+
+<audio id="bg-music" src="assets/bg-music.mp3" preload="auto" loop></audio>
+<audio id="sfx-click" src="assets/sfx/outgoing.mp3" preload="auto"></audio>
+<audio id="sfx-soft" src="assets/sfx/incoming.mp3" preload="auto"></audio>
+<audio id="sfx-yes" src="assets/sfx/special.mp3" preload="auto"></audio>
+
+<script src="letter.js"></script>
 </body>
 </html>
